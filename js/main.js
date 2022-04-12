@@ -42,11 +42,12 @@ class ProductInfo {
     this.image = productData.image_url;
   }
 
+  // Show the product info on the page
   showInfo() {
     document.getElementById("product-img").src = this.image;
     document.getElementById("product-name").innerHTML = `${this.name}`;
   }
-
+  // List the ingredients on the page
   listIngredients() {
     let tableRef = document.getElementById("ingredient-table");
     for (var i = 1; i < tableRef.rows.length; ) {
@@ -59,7 +60,7 @@ class ProductInfo {
         let newVCell = newRow.insertCell(1);
         let newIText = document.createTextNode(this.ingredients[key].text);
         let vegStatus =
-          this.ingredients[key].vegetarian == null
+          this.ingredients[key].vegetarian === null
             ? "unknown"
             : this.ingredients[key].vegetarian;
         let newVText = document.createTextNode(vegStatus);
